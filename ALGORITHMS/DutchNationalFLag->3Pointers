@@ -1,4 +1,6 @@
 Pattern Name
+intution ##################
+it consist of three thind since threefdifferent elements are there . 0->low - 1)-> 0s are there , low to mid  - 1-> 1 ,(mid to high->unsorted hypothtical maan le )  and high+1 to n - 1 all 2 are there i wants to shrink mod to high in a way that resultant will be sorted array using  adjusting this rwange valyes to low and high 
 
 Dutch National Flag Algorithm (3-Way Partitioning)
 
