@@ -1,0 +1,138 @@
+Pattern Name
+
+Dutch National Flag Algorithm (3-Way Partitioning)
+
+############# When to Use     ###############
+
+                                                                    Array has only 3 distinct categories (like {0,1,2} or {neg, zero, pos}).
+
+                                                                    Problem asks to rearrange elements in-place without extra space.
+
+                                                                    You need a one-pass O(n) SOLUTION (instead of sorting O(n log n)).
+
+
+
+-#############>Core Idea->>>>>>>>>##########
+
+Maintain three partitions: [0…low-1] = 0s, [low…mid-1] = 1s, [high+1…end] = 2s.
+
+Iterate with mid pointer:
+
+If element is 0 → swap with low, expand both low and mid.
+
+If element is 1 → just move mid.
+
+If element is 2 → swap with high, shrink high.
+
+Continue until mid > high.
+
+
+
+#############Variants / Applications############->>>>>>>>
+
+Sort Colors (LeetCode 75) → Sort array of {0,1,2}.
+
+Segregate negatives, zeros, positives.
+
+Group objects by 3 categories (e.g. T-shirt sizes S/M/L).
+
+QuickSort partitioning → (2-way is a simpler variant).
+
+
+
+############Edge Cases##########
+
+Array already sorted ([0,0,1,1,2,2]).
+
+Array with only one type ([0,0,0] or [2,2]).
+
+Mixed order but small length ([2,0], [1,2]).
+
+#########Common Pitfalls + Fixes#############
+
+❌ Incrementing mid after swapping with high.
+
+✅ Fix: Only decrement high, don’t increment mid because swapped element still needs check.
+
+❌ Forgetting to stop loop at mid <= high.
+
+✅ Fix: Always include equality, else last element ignored.
+
+❌ Using extra array unnecessarily.
+
+✅ Fix: Works in-place with O(1) space.
+
+#########Complexity##########
+
+
+Main Step: O(n) (one pass over array)
+
+Worst Case: O(n)
+
+Space: O(1)
+
+#############Dry Run Example############
+
+Input: [2, 0, 2, 1, 1, 0]
+
+low	mid	high	Array State	Action
+0	0	5	[2, 0, 2, 1, 1, 0]	swap mid-high → [0,0,2,1,1,2]
+0	0	4	[0, 0, 2, 1, 1, 2]	swap mid-low → [0,0,2,1,1,2]
+1	1	4	[0, 0, 2, 1, 1, 2]	swap mid-low → [0,0,2,1,1,2]
+2	2	4	[0, 0, 2, 1, 1, 2]	swap mid-high → [0,0,1,1,2,2]
+2	2	3	[0, 0, 1, 1, 2, 2]	mid++
+2	3	3	[0, 0, 1, 1, 2, 2]	mid++
+
+Output: [0,0,1,1,2,2] ✅
+
+##################1-Minute Checklist################
+
+✅ Array restricted to 3 distinct categories?
+✅ Loop condition is mid <= high?
+✅ After swapping with high, don’t increment mid?
+✅ In-place, O(1) space guaranteed?
+
+############Difficulty-wise Problems#######3
+
+Easy:
+
+Sort Colors (LeetCode 75)
+
+Medium:
+
+Partition Array into Three Parts with Given Range (GFG)
+
+Hard:
+
+3-Way QuickSort Partition (Randomized Quicksort)
+
+Example Code
+// Dutch National Flag Algorithm
+// Sorts array of {0,1,2} in one pass
+
+void sortColors(vector<int>& nums) {
+    int low = 0, mid = 0, high = nums.size() - 1;
+
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low], nums[mid]);
+            low++;
+            mid++;
+        } 
+        else if (nums[mid] == 1) {
+            mid++;
+        } 
+        else { // nums[mid] == 2
+            swap(nums[mid], nums[high]);
+            high--;
+        }
+    }
+}
+
+
+
+##########My Common Mistakes ##########
+
+Mistake I made in Sort Colors: incremented mid even after swapping with high.
+
+Mistake I made in Neg/Zero/Pos Partition: forgot to handle arrays with all positives.
