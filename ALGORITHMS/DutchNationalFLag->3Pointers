@@ -30,18 +30,6 @@ Continue until mid > high.
 
 
 
-#############Variants / Applications############->>>>>>>>
-
-Sort Colors (LeetCode 75) → Sort array of {0,1,2}.
-
-Segregate negatives, zeros, positives.
-
-Group objects by 3 categories (e.g. T-shirt sizes S/M/L).
-
-QuickSort partitioning → (2-way is a simpler variant).
-
-
-
 ############Edge Cases##########
 
 Array already sorted ([0,0,1,1,2,2]).
@@ -50,7 +38,7 @@ Array with only one type ([0,0,0] or [2,2]).
 
 Mixed order but small length ([2,0], [1,2]).
 
-#########Common Pitfalls + Fixes#############
+#########Common Pitfalls + Fixes############# firstly  solve 1 problem on this algo on codeforces and then chack edge cases and pittfalls 
 
 ❌ Incrementing mid after swapping with high.
 
@@ -64,14 +52,7 @@ Mixed order but small length ([2,0], [1,2]).
 
 ✅ Fix: Works in-place with O(1) space.
 
-#########Complexity##########
 
-
-Main Step: O(n) (one pass over array)
-
-Worst Case: O(n)
-
-Space: O(1)
 
 #############Dry Run Example############
 
@@ -87,26 +68,11 @@ low	mid	high	Array State	Action
 
 Output: [0,0,1,1,2,2] ✅
 
-##################1-Minute Checklist################
-
-✅ Array restricted to 3 distinct categories?
-✅ Loop condition is mid <= high?
-✅ After swapping with high, don’t increment mid?
-✅ In-place, O(1) space guaranteed?
-
 ############Difficulty-wise Problems#######3
+- >  Sort Colors (LeetCode 75
 
-Easy:
-
-Sort Colors (LeetCode 75)
-
-Medium:
-
-Partition Array into Three Parts with Given Range (GFG)
-
-Hard:
-
-3-Way QuickSort Partition (Randomized Quicksort)
+->   Partition Array into Three Parts with Given Range (GFG)
+->  3-Way QuickSort Partition (Randomized Quicksort)
 
 Example Code
 // Dutch National Flag Algorithm
@@ -133,8 +99,5 @@ void sortColors(vector<int>& nums) {
 
 
 
-##########My Common Mistakes ##########
-
-Mistake I made in Sort Colors: incremented mid even after swapping with high.
-
+##########My Common Mistake
 Mistake I made in Neg/Zero/Pos Partition: forgot to handle arrays with all positives.
