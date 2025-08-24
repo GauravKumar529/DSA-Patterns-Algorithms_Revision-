@@ -78,7 +78,8 @@ Example Code
 // Dutch National Flag Algorithm
 // Sorts array of {0,1,2} in one pass
 
-void sortColors(vector<int>& nums) {
+
+```void sortColors(vector<int>& nums) {
     int low = 0, mid = 0, high = nums.size() - 1;
 
     while (mid <= high) {
@@ -95,7 +96,8 @@ void sortColors(vector<int>& nums) {
             high--;
         }
     }
-}
+} 
+```
 
 
 
