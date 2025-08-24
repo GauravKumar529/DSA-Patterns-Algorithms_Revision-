@@ -16,7 +16,8 @@ Majority element is guaranteed or highly likely.
 
 Need efficient solution with minimal memory.
 
-Can extend to “more than n/k times” problem with tweaks.
+Can extend to “more than n/k times” problem with tweaks. -> each element ike for n  / 2 there only present on e element -> strixtly(>) 
+#  if( majority >n /3 ) means take ex n = 9 ,  n/3 = 3-> need eleement which appear  atleast  4 times , 1*4 +1*4+  no-> means there xist only two element such that follow this condition eise SOCHTE HAI (MAIN POINT)
 
 🛠 Steps / Dry Run Idea:
 
